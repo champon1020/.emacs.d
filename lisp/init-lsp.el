@@ -69,6 +69,9 @@
                             (add-hook 'before-save-hook #'lsp-organize-imports t t)))))
      :bind (:map lsp-mode-map
             ("C-c C-d" . lsp-describe-thing-at-point)
+            ("C-c C-j" . lsp-find-definition)
+            ("C-c C-r" . lsp-find-references)
+            ("C-c C-i" . lsp-find-implementation)
             ([remap xref-find-definitions] . lsp-find-definition)
             ([remap xref-find-references] . lsp-find-references))
      :init (setq lsp-keymap-prefix "C-c l"

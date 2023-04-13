@@ -212,6 +212,9 @@
   (fset 'yes-or-no-p 'y-or-n-p))
 (setq-default major-mode 'text-mode
               fill-column 80
+              sh-basic-offset 2
+              truncate-lines t
+              ring-bell-function 'ignore
               tab-width 4
               indent-tabs-mode nil)     ; Permanently indent with spaces, never with TABs
 
@@ -246,7 +249,19 @@
 ;; Global keybindings
 (bind-keys ("s-r"     . revert-this-buffer)
            ("C-x K"   . delete-this-file)
-           ("C-c C-l" . reload-init-file))
+           ("C-c C-l" . reload-init-file)
+           ("C-o"     . toggle-truncate-lines)
+           ("C-l"     . goto-line))
+
+;; Tab
+(defvar my-c-z-prefix (kbd "C-z"))
+(setq my-c-z-map (make-keymap))
+(define-key global-map my-c-z-prefix my-c-z-map)
+(defun my-set-key-c-z-map () (local-set-key my-c-z-prefix my-c-z-map))
+(bind-keys ("C-z c" . tab-bar-new-tab)
+           ("C-z n" . tab-bar-switch-to-next-tab)
+           ("C-z p" . tab-bar-switch-to-prev-tab)
+           ("C-z k" . tab-bar-close-tab))
 
 ;; Sqlite
 (when (fboundp 'sqlite-open)
