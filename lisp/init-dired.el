@@ -47,7 +47,9 @@
         dired-recursive-copies 'always)
 
   ;; Show directory first
-  (setq dired-listing-switches "-alh --group-directories-first")
+  (setq dired-quick-sort-sort-by-last "version")
+  (setq dired-quick-sort-group-directories-last ?y)
+  (setq dired-listing-switches "-alh --sort=version --group-directories-first")
 
   (when sys/macp
     (if (executable-find "gls")
