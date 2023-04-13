@@ -37,6 +37,10 @@
   :hook (inferior-python-mode . (lambda ()
                                   (process-query-on-exit-flag
                                    (get-process "Python"))))
+  (python-mode . (lambda ()
+                   (add-hook 'before-save-hook 'py-isort-before-save)
+                   (add-hook 'before-save-hook 'yapfify-buffer)
+                   (python-black-on-save-mode-enable-dwim)))
   :init
   ;; Disable readline based native completion
   (setq python-shell-completion-native-enable nil)
@@ -52,7 +56,10 @@
     (exec-path-from-shell-copy-env "PYTHONPATH"))
 
   ;; Live Coding in Python
-  (use-package live-py-mode))
+  (use-package live-py-mode)
+  (use-package black)
+  (use-package isort)
+  (use-package yapfify))
 
 (provide 'init-python)
 

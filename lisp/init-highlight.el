@@ -45,8 +45,11 @@
   :ensure nil
   :hook (after-init . show-paren-mode)
   :init (setq show-paren-when-point-inside-paren t
-              show-paren-when-point-in-periphery t)
+              show-paren-when-point-in-periphery t
+              show-paren-style 'parenthesis
+	          show-paren-delay 0.1)
   :config
+  (set-face-background 'show-paren-match "yellow")
   (with-no-warnings
     ;; Display matching line for off-screen paren.
     (defun display-line-overlay (pos str &optional face)
@@ -96,7 +99,7 @@ FACE defaults to inheriting from default and highlight."
 (use-package symbol-overlay
   :diminish
   :custom-face
-  (symbol-overlay-default-face ((t (:inherit region :background unspecified :foreground unspecified))))
+  (symbol-overlay-default-face ((t (:inherit region :background "darkgray" :foreground unspecified))))
   (symbol-overlay-face-1 ((t (:inherit all-the-icons-blue :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-2 ((t (:inherit all-the-icons-pink :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-3 ((t (:inherit all-the-icons-yellow :background unspecified :foreground unspecified :inverse-video t))))
