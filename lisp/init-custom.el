@@ -125,7 +125,7 @@
                     centaur-package-archives-alist)))
 
 (defcustom centaur-theme-alist
-  '((default . doom-zenburn)
+  '((default . doom-lantern)
     (pro     . doom-monokai-pro)
     (dark    . doom-vibrant)
     (light   . doom-one-light)

@@ -108,7 +108,7 @@ FACE defaults to inheriting from default and highlight."
   (symbol-overlay-face-6 ((t (:inherit all-the-icons-purple :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-7 ((t (:inherit all-the-icons-green :background unspecified :foreground unspecified :inverse-video t))))
   (symbol-overlay-face-8 ((t (:inherit all-the-icons-cyan :background unspecified :foreground unspecified :inverse-video t))))
-  :bind (("M-i" . symbol-overlay-put)
+  :bind (("M-o" . symbol-overlay-put)
          ("M-n" . symbol-overlay-jump-next)
          ("M-p" . symbol-overlay-jump-prev)
          ("M-N" . symbol-overlay-switch-forward)

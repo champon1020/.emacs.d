@@ -35,6 +35,7 @@
   :functions go-install-tools
   :autoload godoc-gogetdoc
   :bind (:map go-mode-map
+         ("C-c R" . go-remove-unused-imports)
          ("<f1>" . godoc))
   :init
   (setq godoc-at-point-function #'godoc-gogetdoc)
@@ -68,6 +69,10 @@
                (message "Installed %s" pkg)
              (message "Failed to install %s: %d" pkg status)))))))
   :config
+  ;; Formatter
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+
   ;; Env vars
   (with-eval-after-load 'exec-path-from-shell
     (exec-path-from-shell-copy-envs '("GOPATH" "GO111MODULE" "GOPROXY")))
