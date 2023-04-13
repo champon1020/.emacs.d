@@ -57,8 +57,8 @@
 
   ;; Live Coding in Python
   (use-package live-py-mode)
-  (use-package black)
-  (use-package isort)
+  (use-package python-black)
+  (use-package py-isort)
   (use-package yapfify))
 
 (provide 'init-python)
