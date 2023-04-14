@@ -71,6 +71,7 @@
   "Enable `server-mode' or not."
   :group 'centaur
   :type 'boolean)
+(setq centaur-server nil)
 
 (defcustom centaur-icon (or (display-graphic-p) (daemonp))
   "Display icons or not."
@@ -256,6 +257,7 @@ Native tree-sitter is introduced in 29."
 Nil to use font supports ligatures."
   :group 'centaur
   :type '(alist :key-type string :value-type (choice character sexp)))
+(setq centaur-prettify-symbols-alist nil)
 
 (defcustom centaur-prettify-org-symbols-alist
   '(("[ ]"            . ?)
