@@ -146,7 +146,7 @@
   :ensure nil
   :hook ((after-init . size-indication-mode)
          (text-mode . visual-line-mode)
-         ((prog-mode markdown-mode conf-mode) . enable-trailing-whitespace))
+         ((prog-mode markdown-mode conf-mode jsonl-mode) . enable-trailing-whitespace))
   :init
   (setq column-number-mode t
         line-number-mode t
@@ -223,6 +223,7 @@
       delete-by-moving-to-trash t       ; Deleting files go to OS's trash folder
       make-backup-files nil             ; Forbide to make backup files
       auto-save-default nil             ; Disable auto save
+      require-final-newline t           ; Puts a newline at the end if there isn't alread one there
 
       uniquify-buffer-name-style 'post-forward-angle-brackets ; Show path if names are same
       adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*"

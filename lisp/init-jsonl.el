@@ -7,10 +7,15 @@
 
 ;;; Code:
 
-(add-to-list 'auto-mode-alist '("\\.jsonl\\'" . jsonl-mode))
-
-(add-hook 'jsonl-mode-hook (lambda () (setq visual-line-mode nil)))
-
+(define-generic-mode 'jsonl-mode
+  () () ()
+  (list "\\.jsonl$")
+  (list
+   (lambda ()
+     (setq-local tab-width 2)
+     (setq-local indent-tabs-mode nil)
+     (setq-local visual-line-mode nil)))
+  "Major mode for json line mode")
 
 (provide 'init-jsonl)
 ;;; init-jsonl.el ends here
