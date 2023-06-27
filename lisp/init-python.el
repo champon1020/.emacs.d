@@ -32,6 +32,12 @@
 
 ;; Python Mode
 ;; Install: pip install pyflakes autopep8
+
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode 1))
+
 (use-package python
   :ensure nil
   :hook (inferior-python-mode . (lambda ()
@@ -39,10 +45,12 @@
                                    (get-process "Python"))))
   (python-mode . (lambda ()
                    (add-hook 'before-save-hook 'py-isort-before-save)
-                   (add-hook 'before-save-hook 'yapfify-buffer)
+                                        ;(add-hook 'before-save-hook 'yapfify-buffer)
+                   (lsp-pyright-setup)
                    (python-black-on-save-mode-enable-dwim)))
   :init
   ;; Disable readline based native completion
+  (setq tab-width 4)
   (setq python-shell-completion-native-enable nil)
   :config
   ;; Default to Python 3. Prefer the versioned Python binaries since some
@@ -60,6 +68,9 @@
   (use-package python-black)
   (use-package py-isort)
   (use-package yapfify))
+
+(defun lsp-pyright-setup ()
+  (setq-local lsp-pyright-venv-path python-shell-virtualenv-root))
 
 (provide 'init-python)
 

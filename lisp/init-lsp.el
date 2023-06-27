@@ -541,8 +541,10 @@
      :hook (((python-mode python-ts-mode) . (lambda ()
                                               (require 'lsp-pyright)
                                               (add-hook 'after-save-hook #'lsp-pyright-format-buffer t t))))
-     :init (when (executable-find "python3")
-             (setq lsp-pyright-python-executable-cmd "python3")))
+     :init
+     (when (executable-find "python3")
+       (setq lsp-pyright-python-executable-cmd "python3")))
+
 
    ;; C/C++/Objective-C
    (use-package ccls
