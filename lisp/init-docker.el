@@ -43,7 +43,8 @@
 (unless emacs/>=29p
   (use-package docker-tramp))
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :init (setq dockerfile-indent-offset 0))
 
 (provide 'init-docker)
 
