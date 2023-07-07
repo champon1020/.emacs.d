@@ -146,7 +146,7 @@
   :ensure nil
   :hook ((after-init . size-indication-mode)
          (text-mode . visual-line-mode)
-         ((prog-mode markdown-mode conf-mode jsonl-mode) . enable-trailing-whitespace))
+         ((prog-mode markdown-mode conf-mode jsonl-mode yaml-mode) . enable-trailing-whitespace))
   :init
   (setq column-number-mode t
         line-number-mode t
