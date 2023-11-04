@@ -37,7 +37,9 @@
   :ensure nil
   :bind (:map c-mode-base-map
          ("<f12>" . compile))
-  :init (setq-default c-basic-offset 4))
+  :init
+  (setq-default c-basic-offset 4)
+  (setq lsp-lens-enable nil))
 
 (use-package c-ts-mode
   :ensure nil

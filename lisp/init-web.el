@@ -132,7 +132,7 @@
 (when (executable-find "prettier")
   (use-package prettier
     :diminish
-    :hook ((js-mode js2-mode css-mode sgml-mode web-mode) . prettier-mode)
+    :hook ((js-mode js2-mode css-mode sgml-mode web-mode typescript-mode) . prettier-mode)
     :init (setq prettier-pre-warm 'none)))
 
 ;; Live browser JavaScript, CSS, and HTML interaction
@@ -149,7 +149,11 @@
     (diminish 'skewer-html-mode)))
 
 (use-package typescript-mode
-  :mode ("\\.ts[x]\\'" . typescript-mode))
+  :mode ("\\.ts[x]\\'" . typescript-mode)
+  :config
+  (setq indent-tabs-mode t)
+  (setq typescript-indent-level 2)
+  (setq tab-width 2))
 
 ;; Run Mocha or Jasmine tests
 (use-package mocha
